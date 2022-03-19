@@ -1,0 +1,4 @@
+Name:GigabitEthernet2
+ description:Configured by RESTCONF - ITCENTAR
+ ip address:10.255.255.1
+ Netmask:255.255.255.0

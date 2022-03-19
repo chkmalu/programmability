@@ -1,4 +1,3 @@
-from distutils.command.config import config
 from ncclient import manager
 import xmltodict
 from pprint import pprint
@@ -12,9 +11,9 @@ with open('int_filter', 'r') as f:
   netcon = m.get(int_filter)
   # parse only data without rpc-reply into python ordered dict & print
   netdic = xmltodict.parse(netcon.xml)['rpc-reply']['data']
-  print(f"Name:{netdic['interfaces']['interface']['name']['#text']}\n ip address:{netdic['interfaces']['interface']['ipv4']['address']['ip']}\n Netmask:{netdic['interfaces']['interface']['ipv4']['address']['netmask']}")
-  print(f"status:{netdic['interfaces-state']['interface']['admin-status']}\n last-change:{netdic['interfaces-state']['interface']['last-change']}\n Mac-address:{netdic['interfaces-state']['interface']['phys-address']}")
-  # pprint(netdic)
+  # print(f"Name:{netdic['interfaces']['interface']['name']['#text']}\n description:{netdic['interfaces']['interface']['description']}\n ip address:{netdic['interfaces']['interface']['ipv4']['address']['ip']}\n Netmask:{netdic['interfaces']['interface']['ipv4']['address']['netmask']}")
+  # print(f"status:{netdic['interfaces-state']['interface']['admin-status']}\n last-change:{netdic['interfaces-state']['interface']['last-change']}\n Mac-address:{netdic['interfaces-state']['interface']['phys-address']}")
+  pprint(netdic)
     # print(netcon)
     # for cap in m.server_capabilities:
     #     print('*' * 50)
