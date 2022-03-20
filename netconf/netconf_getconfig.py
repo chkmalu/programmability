@@ -4,7 +4,7 @@ from pprint import pprint
 from device_info import CSR1000V
 
 # open filter file
-with open('int_filter', 'r') as f:
+with open('int_filter') as f:
   int_filter = f.read()
   # connect to client
   m = manager.connect(host=CSR1000V['host'],port=CSR1000V['port'],username=CSR1000V['username'],password=CSR1000V['password'],hostkey_verify=False)
