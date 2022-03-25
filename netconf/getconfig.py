@@ -11,20 +11,25 @@ with open('filter.xml') as f:
   netcon = m.get(int_filter)
   # parse only data without rpc-reply into python ordered dict & print
   netdic = xmltodict.parse(netcon.xml)['rpc-reply']['data']
+  # pprint(netdic)
   ospf_prcs = netdic['native']['router']['ospf']
-  prc_id = 0
+  pprint(ospf_prcs)
+
+  def ospf_params(nwt):
+      print(f"area:{nwt['area']}")
+      print(f"network:{nwt['ip']}")
+      print(f"mask:{nwt['mask']}")
+      print('*' * 100)
+
   for prc in ospf_prcs:
       print(f"ospf-id:{prc['id']}")
-      network = prc['network']
+      try:
+          network = prc['network']
+      except KeyError:
+          print('NO network advertised')
+          pass
       if type(network) == list:
           for net in network:
-              print(f"network:{net['ip']}")
-              print(f"mask:{net['mask']}")
-              print(f"area:{net['area']}")
-              print('*' * 100)
+              ospf_params(net)
       else:
-          print(f"area:{network['area']}")
-          print(f"network:{network['ip']}")
-          print(f"mask:{network['mask']}")
-          print('*' * 100)
-      prc_id+=1
+          ospf_params(network)

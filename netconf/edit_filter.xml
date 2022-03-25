@@ -1,10 +1,18 @@
     <config>
-      <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-        <interface>
-          <name>{interface_name}</name>
-          <description>{interface_des}</description>
-          <enabled>true</enabled>
-        </interface>
-      </interfaces>
+      <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <router>
+          <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+            <id>35</id>
+            <area>
+              <id>0</id>
+            </area>
+            <router-id>35.35.35.35</router-id>
+            <network>
+              <ip>{ip_add}</ip>
+              <mask>{netmask}</mask>
+              <area>0</area>
+            </network>
+          </ospf>
+        </router>
+      </native>
     </config>
-    
