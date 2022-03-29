@@ -1,0 +1,9 @@
+          <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+            <id>104</id>
+            <router-id>12.12.12.12</router-id>
+            <network>
+              <ip>158.158.158.0</ip>
+              <mask>0.0.0.255</mask>
+              <area>0</area>
+            </network>
+          </ospf>
