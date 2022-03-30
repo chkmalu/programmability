@@ -1,0 +1,10 @@
+ {
+  "ins_api": {
+    "version": "1.0",
+    "type": "cli_show",
+    "chunk": "0",
+    "sid": "sid",
+    "input": "show ip interface brief",
+    "output_format": "json"
+  }
+}

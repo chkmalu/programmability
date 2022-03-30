@@ -1,0 +1,10 @@
+{
+  "ins_api": {
+    "version": "1.0",
+    "type": "cli_conf",
+    "chunk": "0",
+    "sid": "sid",
+    "input": "interface Loopback200 ;ip address 20.10.2.1 255.255.255.0",
+    "output_format": "json"
+  }
+}
