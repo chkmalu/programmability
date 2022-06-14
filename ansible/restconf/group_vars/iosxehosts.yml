@@ -1,0 +1,15 @@
+---
+ansible_connection: "httpapi"
+ansible_network_os: "restconf"
+ansible_httpapi_use_ssl: true
+ansible_httpapi_port: 443
+ansible_httpapi_validate_certs: false
+ansible_httpapi_restconf_root: "/restconf"
+ansible_user: "developer"
+ansible_password: "C1sco12345"
+
+local_loopback:
+  - name: "Loopback102"
+    desc: "Created with Ansible by malu"
+    ip_address: 10.99.99.1
+    prefix: 255.255.255.0

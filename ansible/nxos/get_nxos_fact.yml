@@ -1,0 +1,17 @@
+---
+- name: get facts
+  hosts: nxoshosts
+  connection: local
+  tasks:
+    - name: 9k facts
+      nxos_facts:
+        provider: nxapi
+          host: sandbox-nxos-1.cisco.com
+          transport: nxapi
+          use_ssl: yes
+          validate_certs: no
+      register: nxos_facts
+ 
+    - name: print facts
+      debug: msg="{{nxos_facts}}"
+    

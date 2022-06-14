@@ -1,0 +1,20 @@
+---
+- name: get_facts
+  hosts: iosxehosts
+  connection: local
+  tasks:
+    - name: iosxe_facts
+      ios_facts:
+        provider:
+          host: sandbox-iosxe-recomm-1.cisco.com
+          port: 22
+          username: developer
+          password: C1sco12345
+      register: facts
+  
+    - name: get_version 
+      debug: 
+        var: ansible_net_version
+    - name: get_hostname
+      debug:
+        var: ansible_net_hostname

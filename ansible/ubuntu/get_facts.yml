@@ -1,0 +1,8 @@
+---
+- name: Get stats and write to desktop
+  hosts: ubuntuhosts
+  tasks:
+    - name: get system status and info
+      shell: uname -a > /home/malu/Desktop/output.txt
+    - name: print my username
+      shell: whoami >> /home/malu/Desktop/output.txt

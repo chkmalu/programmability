@@ -1,0 +1,19 @@
+---
+- name: loopback_int
+  hosts: nxoshosts
+  connection: local
+  tasks:
+    - name: create loopback int
+      with_items: "{{local_loopback}}"
+      nxos_interface:
+        interface: "{{item.name}}"
+        description: "{{item.description}}"
+        mode: layer3
+        admin_state: down
+
+    - name: set config
+      with_items: "{{local_loopback}}"
+      nxos_l3_interface:
+        name: "{{item.name}}"
+        ipv4: "{{item.ip_add}}"
+        state: present

@@ -1,0 +1,13 @@
+---
+- name: ansible loop
+  hosts: ubuntuhosts
+  become: yes
+  tasks:
+    - name: create file
+      shell: echo 'starting' > /home/malu/Desktop/file.txt
+    - name: loop 2ru items
+      shell: echo {{item}} >> /home/malu/Desktop/file.txt
+      with_items:
+        - router
+        - switch
+        - firewall

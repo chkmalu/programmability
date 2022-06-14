@@ -1,0 +1,8 @@
+---
+- name: create temp
+  hosts: iosxehosts
+  connection: local
+  tasks:
+    - name: create loopback temp
+      with_items: "{{local_loopback}}"
+      template: src="files/temp.j2" dest="./output.json"

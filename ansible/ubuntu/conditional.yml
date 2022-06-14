@@ -1,0 +1,12 @@
+---
+- name: install ngix
+  hosts: ubuntuhosts
+  become: true
+  tasks:
+    - name: install nginx on ubuntu
+      apt: name=nginx state=present
+      when: ansible_os_family == "Debian"
+
+    # - name: uninstall nginx on centos
+    #   yum: name=nginx state=absent
+    #   when: ansible_os_family == "RedHat"

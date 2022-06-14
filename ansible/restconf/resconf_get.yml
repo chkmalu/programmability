@@ -1,0 +1,14 @@
+---
+- name: get_req
+  hosts: iosxehosts
+  connection: local
+  tasks:
+    - name: get int details
+      restconf_get:
+        content: config
+        output: json
+        path: /data/ietf-interfaces:interfaces/interface
+      register: output
+    
+    - name: print output
+      debug: msg="{{output}}"

@@ -1,0 +1,27 @@
+---
+- name: create interface
+  hosts: iosxehosts
+  connection: local
+  tasks:
+    - name: create temp
+      with_items: "{{local_loopback}}"
+      template: src="files/temp.j2" dest="./output.json"
+
+    - name: create loopback interface
+      with_items: "{{local_loopback}}"
+      restconf_config:
+        format: json
+        method: post
+        path: /data/ietf-interfaces:interfaces
+        content: "{{lookup('file','./output.json') | string}}"
+      register: result
+
+    - name: print result
+      debug: msg={{result}}
+
+    # - name: Delete interface
+    #   with_items: "{{local_loopback}}"
+    #   restconf_config:
+    #     method: delete
+    #     format: json
+    #     path: "/data/ietf-interfaces:interfaces/interface={{item.name}}"

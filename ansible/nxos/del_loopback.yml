@@ -1,0 +1,10 @@
+---
+- name: delete interface
+  hosts: nxoshosts
+  connection: local
+  tasks:
+    - name: del loopback
+      with_items: "{{local_loopback}}"
+      nxos_interface:
+        name: "{{item.name}}"
+        state: absent
